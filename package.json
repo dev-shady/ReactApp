@@ -1,0 +1,27 @@
+{
+  "name": "reactapp",
+  "version": "1.0.0",
+  "description": "creating app from scratch with react to understand all react concepts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-shady/ReactApp.git"
+  },
+  "keywords": [],
+  "author": "Amit Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-shady/ReactApp/issues"
+  },
+  "homepage": "https://github.com/dev-shady/ReactApp#readme",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "browsersList": ["last 2 versions"]
+}
