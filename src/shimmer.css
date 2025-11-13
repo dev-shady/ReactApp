@@ -1,0 +1,11 @@
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-item {
+    width: 200;
+    height: 300;
+    background-color: #cbc8c8;
+    margin: 10;
+}

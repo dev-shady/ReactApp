@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantMockData } from "../utils/mockData";
 import { useEffect, useState } from "react";
 import { SWIGGY_API_URL } from "../utils/constant";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -24,7 +25,9 @@ const Body = () => {
     }
   };
 
-  return (
+  return !restaurants.length ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filters">
         <button
