@@ -18,3 +18,21 @@
     - https support
     - tree shaking - remove unused codes
     - different dev and prod bundles
+
+# App Structure
+
+/**
+ * Header
+ * - Logo
+ * - Nav bar
+ * Body
+ * - Search bar
+ * - RestaurantContainer
+ *      - RestaurantCards
+ * Footer
+ * - copyright
+ * - links
+ * - Address
+ * - Contact
+ *
+ */
