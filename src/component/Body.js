@@ -1,4 +1,5 @@
-import RestaurantCard from "../../RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
+import { restaurantMockData } from "../utils/mockData";
 
 const Body = () => {
   return (
@@ -6,13 +7,9 @@ const Body = () => {
       <div className="search">Search Bar</div>
 
       <div className="res-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        {restaurantMockData.restaurants.map((item) => {
+          return <RestaurantCard key={item.info.id} data={item.info} />;
+        })}
       </div>
     </div>
   );
