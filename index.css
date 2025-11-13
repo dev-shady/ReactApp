@@ -21,8 +21,12 @@
     font-size: large;
 }
 
-.search {
+.filters {
     margin: 10;
+}
+
+.filter-item {
+    margin:10;
 }
 
 .res-card {
