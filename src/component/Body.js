@@ -1,14 +1,19 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurantMockData } from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SWIGGY_API_URL } from "../utils/constant";
 import Shimmer from "./Shimmer";
+import { CACHE_RESTAURANTS_KEY } from "../utils/constant";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
+  const cache = useRef(new Map());
 
   useEffect(() => {
     fetchData();
+
+    () => {
+      cache.current.clear();
+    };
   }, []);
 
   const fetchData = async () => {
@@ -19,6 +24,7 @@ const Body = () => {
       const restaurants =
         data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+      cache.current.set(CACHE_RESTAURANTS_KEY, restaurants);
       setRestaurants(restaurants);
     } catch (err) {
       console.log("error ", err);
@@ -42,7 +48,13 @@ const Body = () => {
         </button>
         <button
           className="filter-item"
-          onClick={() => setRestaurants(restaurantMockData.restaurants)}
+          onClick={() => {
+            setRestaurants(
+              cache.current.has(CACHE_RESTAURANTS_KEY)
+                ? cache.current.get(CACHE_RESTAURANTS_KEY)
+                : []
+            );
+          }}
         >
           All
         </button>
