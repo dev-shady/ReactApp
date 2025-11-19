@@ -21,9 +21,15 @@ const Body = () => {
       const response = await fetch(SWIGGY_API_URL);
       const data = await response.json();
       //handle index out of bound for cards[1]
-      const restaurants =
+      let restaurants =
         data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+      if (!restaurants) {
+        //some hack for api, data coming at index 1 or 3 randomly
+        restaurants =
+          data?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants;
+      }
       cache.current.set(CACHE_RESTAURANTS_KEY, restaurants);
       setRestaurants(restaurants);
     } catch (err) {
