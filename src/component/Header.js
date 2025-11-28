@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constant";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [userLoginStatus, setUserLoginStatus] = useState(1);
@@ -7,6 +8,8 @@ const Header = () => {
     LOGIN: 0,
     LOGOUT: 1,
   };
+
+  const isOnline = useOnlineStatus();
 
   return (
     <div className="header">
@@ -30,6 +33,7 @@ const Header = () => {
               {userLoginStatus === userStatus.LOGIN ? "Log in" : "Log out"}
             </button>
           </li>
+          <li>{isOnline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
     </div>
