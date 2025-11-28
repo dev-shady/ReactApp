@@ -12,17 +12,17 @@ const Header = () => {
   const isOnline = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="flex items-center justify-between">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="max-w-1/6" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-          <li>
+      <div>
+        <ul className="flex">
+          <li className="m-2 p-2">Home</li>
+          <li className="m-2 p-2">About Us</li>
+          <li className="m-2 p-2">Contact Us</li>
+          <li className="m-2 p-2">Cart</li>
+          <li className="m-2 p-2">
             <button
               onClick={() => {
                 setUserLoginStatus(
@@ -33,7 +33,7 @@ const Header = () => {
               {userLoginStatus === userStatus.LOGIN ? "Log in" : "Log out"}
             </button>
           </li>
-          <li>{isOnline ? "🟢" : "🔴"}</li>
+          <li className="m-2 p-2">{isOnline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
     </div>

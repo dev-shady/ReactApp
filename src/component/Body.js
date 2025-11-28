@@ -41,8 +41,9 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filters">
+      <div className="m-2">
         <button
+          className="m-2 p-1 bg-gray-400"
           onClick={() => {
             const filteredRest = restaurants.filter(
               (restaurant) => restaurant.info.avgRating >= 4.5
@@ -53,7 +54,7 @@ const Body = () => {
           Top Rated
         </button>
         <button
-          className="filter-item"
+          className="m-2 px-4 py-1 bg-gray-400"
           onClick={() => {
             setRestaurants(
               cache.current.has(CACHE_RESTAURANTS_KEY)
@@ -66,7 +67,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {restaurants.map((item) => {
           return <RestaurantCard key={item.info.id} data={item.info} />;
         })}
